@@ -30,6 +30,7 @@ function plotter(id) {
             y: idOTU,
             type: "bar",
             orientation: "h",
+            marker: {color: 'rgb(208,219,206)'}
         };
         //create data var
         var data = [trace];
@@ -49,7 +50,7 @@ function plotter(id) {
                 t: 30,
                 b: 30
             },
-            font: { color: "#49a81d", family: "Arial, Helvetica, sans-serif" }
+            font: { family: "Arial, Helvetica, sans-serif" }
         };
         //create plot
         Plotly.newPlot("bar", data, layout);
@@ -68,11 +69,12 @@ function plotter(id) {
         };
         //bubble layout
         var layout = {
+            title: "Bacterial Presence in Belly Button",
             xaxis: { title: "OTU ID" },
             yaxis: { title: "Sample Count"},
             height: 600,
             width: 1200,
-            font: { color: "#49a81d", family: "Arial, Helvetica, sans-serif" }
+            font: { family: "Arial, Helvetica, sans-serif" }
         };
         //create bubble plot
         var data1 = [trace1];
@@ -106,10 +108,6 @@ function infograbber(id) {
         });
     });
 }
-function optionchange(id) {
-    plotter(id);
-    infograbber(id);
-}
 
 //create function for initial data render
 function init() {
@@ -122,12 +120,17 @@ function init() {
 
         //get id to dropdown
         importedData.names.forEach(function(name) {
-            dropdown.append("option").text(name).property("value");
+            dropdown.append("option").text(name).property("value", name);
         });
 
         //call functions to display plots
         plotter(importedData.names[0]);
         infograbber(importedData.names[0]);
     });
+};
+function optionchange(id) {
+    plotter(id);
+    infograbber(id);
 }
+//run init function
 init();
