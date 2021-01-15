@@ -1,3 +1,3 @@
-var ch = '2';
-console.log(ch);
-console.log("This is working");
+d3.json("static/samples.json").then(function (importedData) {
+    console.log(importedData);
+})
