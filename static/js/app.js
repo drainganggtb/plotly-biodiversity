@@ -17,12 +17,12 @@ function plotter(id) {
         var idslice = (samples.otu_ids.slice(0,10)).reverse();
         //format the otu id for plotting
         var idOTU = idslice.map(d => "OTU" + d)
-        console.log('OTU IDs: ${idOTU}')
+        console.log(`OTU IDs: ${idOTU}`)
 
         //get otu labels
         var labels = samples.otu_labels.slice(0,10);
-        console.log('Sample values: ${sampleslice}')
-        console.log('ID Values: ${idslice}')
+        console.log(`Sample: ${sampleslice}`)
+        console.log(`IDs: ${idslice}`)
 
         //set up trace
         var trace = {
@@ -128,9 +128,9 @@ function init() {
         infograbber(importedData.names[0]);
     });
 };
-function optionchange(id) {
-    plotter(id);
-    infograbber(id);
+function optionChanged(newid) {
+    plotter(newid);
+    infograbber(newid);
 }
 //run init function
 init();
