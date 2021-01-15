@@ -80,7 +80,8 @@ function plotter(id) {
         var data1 = [trace1];
         Plotly.newPlot("bubble", data1, layout);
 
-        // gauge plot here  
+        // gauge plot here 
+        
 
     });
   
