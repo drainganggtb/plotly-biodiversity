@@ -129,6 +129,7 @@ function init() {
         infograbber(importedData.names[0]);
     });
 };
+//set up function to change figures in response to new id, referenced in html
 function optionChanged(newid) {
     plotter(newid);
     infograbber(newid);
