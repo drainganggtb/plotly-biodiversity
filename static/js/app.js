@@ -83,5 +83,51 @@ function plotter(id) {
     });
   
 }
+//function to get data
+function infograbber(id) {
+    //read json to get data
+    d3.json("static/samples.json").then((importedData) => {
+        //data for demographics panel
+        var metadata = importedData.metadata;
+        console.log(metadata)
 
-plotter();
+        //filter by id
+        var filteredresult = metadata.filter(meta => meta.id.toString() === id)[0];
+
+        //find the right spot to place data
+        var demos = d3.select("#sample-metadata");
+
+        // empty demo area on html before getting new id info
+        demos.html("");
+
+        //grab demographic data and append info to panel
+        Object.entries(filteredresult).forEach((key) => {
+            demos.append("h5").text(key[0].toUpperCase() + ": " + key[1] + "\n");
+        });
+    });
+}
+function optionchange(id) {
+    plotter(id);
+    infograbber(id);
+}
+
+//create function for initial data render
+function init() {
+    //dropdown menu
+    var dropdown = d3.select("#selDataset");
+
+    //read data usind d3
+    d3.json("static/samples.json").then((importedData) => {
+        console.log(importedData)
+
+        //get id to dropdown
+        importedData.names.forEach(function(name) {
+            dropdown.append("option").text(name).property("value");
+        });
+
+        //call functions to display plots
+        plotter(importedData.names[0]);
+        infograbber(importedData.names[0]);
+    });
+}
+init();
