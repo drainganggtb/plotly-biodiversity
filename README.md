@@ -6,8 +6,10 @@ This assignment involved creating an interactive dashboard of Plot.ly graphs bas
 
 The dataset reveals that a small handful of microbial species (also called operational taxonomic units, or OTUs, in the study) were present in more than 70% of people, while the rest were relatively rare.
 
-## Navigating this Repository
+In order to create the interactive dashboard, the following programs and languages were used: **JavaScript**, **HTML**, **CSS**, **d3.js**, and **Plotly**.
 
+## Navigating this Repository
+This repository contains the `index.html` file to create the dashboard, which has been modified significantly by the `app.js` file within the *js* folder. 
 
 ## Step 1: Plotly
 
@@ -45,7 +47,7 @@ The dataset reveals that a small handful of microbial species (also called opera
 
 6. Update all of the plots any time that a new sample is selected.
 
-Additionally, you are welcome to create any layout that you would like for your dashboard. Here is the output of the HTML file:
+Additionally, you are welcome to create any layout that you would like for your dashboard. Here is the output of the edited HTML file:
 
 ![hw](images/website1.png)
 
@@ -66,12 +68,6 @@ The following task is advanced and therefore optional.
 * Deploy your app to a free static page hosting service, such as GitHub Pages. Submit the links to your deployment and your GitHub repo.
 
 * [Here is the link to access the GitHub Pages site.](https://drainganggtb.github.io/plotly-biodiversity/)
-
-## Hints
-
-* Use `console.log` inside of your JavaScript code to see what your data looks like at each step.
-
-* Refer to the [Plotly.js documentation](https://plot.ly/javascript/) when building the plots.
 
 ### About the Data
 
