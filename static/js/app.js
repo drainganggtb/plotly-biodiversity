@@ -81,7 +81,7 @@ function plotter(id) {
         Plotly.newPlot("bubble", data1, layout);
 
         // gauge plot here 
-        
+       
 
     });
   
@@ -106,7 +106,46 @@ function infograbber(id) {
         //grab demographic data and append info to panel
         Object.entries(filteredresult).forEach((key) => {
             demos.append("h5").text(key[0].toUpperCase() + ": " + key[1] + "\n");
-        });
+        })
+
+        //creat gauge plot
+        var data = [
+            {
+            domain: { x: [0, 1], y: [0, 1] },
+            //value of chart references the specific index of metadata found earlier
+            value: filteredresult.wfreq,
+            title: 'Belly Button Washing Frequency<br> Scrubs per Week',
+            type: "indicator",
+            gauge: {
+                axis: { visible: true, range: [0, 9] },
+                steps: [
+                    { range: [0,1], color: "#eff3ee"},
+                    { range: [1,2], color: "#c1cfbe"},
+                    { range: [2,3], color: "#b2c3ae"},
+                    { range: [3,4], color: "#a0af9c"},
+                    { range: [4,5], color: "#8e9c8b"},
+                    { range: [5,6], color: "#7c8879"},
+                    { range: [6,7], color: "#6a7568"},
+                    { range: [7,8], color: "#596157"},
+                    { range: [8,9], color: "#474e45"},
+                ],
+                bar: { color: "#dedad2" },            
+            },            
+            mode: "number+gauge"
+            }
+        ];
+        
+        var layout = {
+            width: 600,
+            height: 450,
+            margin: { t: 100, r: 100, l: 100, b: 100 },
+            font: { color: "#5E6175", family: "Arial, Helvetica, sans-serif" }
+        };
+        
+        
+        Plotly.newPlot("gauge", data, layout);
+
+
     });
 }
 
