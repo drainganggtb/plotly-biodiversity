@@ -11,6 +11,8 @@ In order to create the interactive dashboard, the following programs and languag
 ## Navigating this Repository
 This repository contains the `index.html` file to create the dashboard, which has been modified significantly by the `app.js` file within the *js* folder. 
 
+[See the page in action!](https://drainganggtb.github.io/plotly-biodiversity/)
+
 ## Step 1: Plotly
 
 1. Use the D3 library to read in `samples.json`.
